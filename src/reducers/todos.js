@@ -3,7 +3,7 @@
  * Copyright mfbproject.co.za - muzi@mfbproject.co.za
  * Copyright zulucoda - mfbproject
  */
-import {ADD_TODO,TOGGLE_TODO,SET_VISIBILITY_FILTER} from '../actions/';
+import { ADD_TODO, TOGGLE_TODO } from '../actions/'
 
 const todo = (state = {}, action) => {
   switch(action.type) {
@@ -12,7 +12,7 @@ const todo = (state = {}, action) => {
         id: action.id,
         text: action.text,
         completed: false
-      }
+      };
 
     case TOGGLE_TODO:
       if(state.id !== action.id) {
@@ -26,11 +26,11 @@ const todo = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 const todos = (state = [], action) => {
   switch (action.type) {
-    case TOGGLE_TODO:
+    case ADD_TODO:
       return [
         ...state,
         todo(undefined, action)
@@ -44,6 +44,6 @@ const todos = (state = [], action) => {
     default:
       return state;
   }
-}
+};
 
 export default todos;
